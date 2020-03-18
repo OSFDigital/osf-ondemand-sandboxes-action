@@ -5,12 +5,12 @@ async function run() {
     try {
         const sandboxes = JSON.parse(core.getInput('sandboxes'));
         const event = core.getInput('event');
-        const allowedEvents = ['start', 'stop', 'create', 'delete', 'restart', 'reset', 'list'];
+        const allowedEvents = ['start', 'stop', 'delete', 'restart', 'reset', 'list'];
 
-        // Check if incoming event is allowed,
-        // throw an error and exit this action
+        // Check if incoming event is allowed and
+        // throw an error and exit this action if it's not  
         if (allowedEvents.includes(event) === false) {
-            core.setFailed('Not a valid event input. Expected one of the following: start | stop | create | delete | restart | reset | list');
+            core.setFailed('Not a valid event input. Expected one of the following: start | stop | delete | restart | reset | list');
         }
 
         if (sandboxes !== undefined && sandboxes.length > 0) {
