@@ -6,6 +6,8 @@ async function run() {
         const sandboxes = JSON.parse(core.getInput('sandboxes'));
         const event = core.getInput('event');
         const allowedEvents = ['start', 'stop', 'delete', 'restart', 'reset', 'list'];
+        
+        console.log(sandboxes);
 
         // Check if incoming event is allowed and
         // throw an error and exit this action if it's not  
